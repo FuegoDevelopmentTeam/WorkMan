@@ -1,0 +1,21 @@
+# 1. Nagy méretű, szinkronizációból kizárt adatkönyvtárak (pl. FUBI esetén)
+Z-Archive/
+
+# 2. Rendszerfájlok
+.github/
+.DS_Store
+desktop.ini
+Thumbs.db
+
+# 3. Specifikus kiterjesztések
+*.ini
+index.json
+*.csv
+
+# 4. A kiindulási dokumentumok, amik már nem kellenek a mobil/AI workflow-ba
+docs/kiindulasi_docs/
+
+# Amit NEM tiltunk (ezek fognak szinkronizálódni a mobillal):
+# - docs/MASTER_CONCEPT.md
+# - Agents/logs/
+# - Agents/S_Agent_Kerdezo.md
