@@ -21,5 +21,5 @@ A DANA, BeatPass, KineLex, WorkMan (illetve egyéb Thin-Slice modulok) egy köz�
 5. **Szimbólumok & Fázis-Kapu:**
    - Kötelező első lépésként beolvasni a `docs/APP_STATE_WorkMan.md` fájlt az aktuális fejlesztési fázis megállapítására.
    - `♥` = Szelektív mentés az ICEBOX-ba (elnapolt kérdés/technikai adósság).
-   - `♦` = Azonnali teljes mentés (Docs, Logs frissítése) és Git Commit indítása.
+   - `♦` = Azonnali teljes mentés (Docs, Logs frissítése), Git Commit **és Git Push** indítása (a commit után kötelező felpusholni a remote-ra).
    - **Log rotáció:** 20 000 karakternél új logfájl (`Agents/logs/`), tetején AI_ready kontextus-tömörítéssel.
