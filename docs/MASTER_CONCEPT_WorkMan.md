@@ -1,8 +1,10 @@
 # MASTER_CONCEPT_WorkMan.md — WorkMan Technical Specification
 
-Version: 1.0.0 (Work-Order, Resource & Value-Flow Engine)  
-Date: 2026-06-14  
+Version: 1.1.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció)  
+Date: 2026-06-16  
 Status: RELEASED  
+
+> **DANA Platform-elv Adoptáció (v1.34.0):** **P52** (a `cash_advances`, előleg, kölcsön = **ledger-számlák** egy tier-dimenziós naplóban, nem külön rendszer; White/Grey/Black egy `ledger_tier` mező); **P53** (a Settlement Matrix [hourly/fixed/revenue-share/combined] a közös **elosztó-vízesés** primitíven, Money value object, determinisztikus kerekítés); **P60** (a szavatossági/Decay reputáció a **közös reputáció-gráfba** csatlakozik, nem külön); **P59** (a work-order→warranty→settlement folyamat a közös **saga** orchestrátoron); **P56/D095** (külső/privát projektek = meta-org-buborékon kívüli vagy scope-olt tételek); **P55** (a szavatossági idő valid-time). Cross-modul: a WorkMan kimenete DrBill-be (P44 esemény) és a DANA ledgerbe (D029) projektál.
 Tech Stack: Next.js (Frontend), Supabase/PostgreSQL (Backend), Tailwind CSS (UI)
 
 ---
