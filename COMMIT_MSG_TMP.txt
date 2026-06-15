@@ -1,5 +1,0 @@
-﻿chore: harmonise .cursorrules and update backlog prompt cache
-
-- Update .cursorrules to use the 4-agent Domain & Tech Expert model
-- Align communication protocols and module lists across all 6 modules
-- Update backlog prompt cache status and version to 1.0.1
