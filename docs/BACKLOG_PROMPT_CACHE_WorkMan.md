@@ -4,6 +4,8 @@ Version: 1.0.1 (Deferred Tech Tasks)
 Date: 2026-06-15  
 Status: DEFERRED (PR-003 függőség: Phase 2 kész; aktiválás Phase 3/4)  
 
+> **Protokoll SSoT:** `../DANA/docs/AGENT_PROTOCOL_STANDARD.md`
+
 Ez a fájl a WorkMan modul **helyi prompt váróterme (Prompt Cache)**. Ide kerülnek azok a magasabb szintű technikai specifikációk és fejlesztési promptok, amelyek a jelenlegi fázisban még nem végrehajthatóak, megakadályozva a kódoló Agentek túl korai implementációs kísérleteit.
 
 ---
