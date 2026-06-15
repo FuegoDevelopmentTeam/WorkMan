@@ -1,8 +1,8 @@
 # BACKLOG_PROMPT_CACHE_WorkMan.md — WorkMan Local Prompt Cache
 
-Version: 1.0.0 (Deferred Tech Tasks)  
-Date: 2026-06-14  
-Status: DEFERRED (Pending Phase 3 Completion)  
+Version: 1.0.1 (Deferred Tech Tasks)  
+Date: 2026-06-15  
+Status: DEFERRED (PR-003 függőség: Phase 2 kész; aktiválás Phase 3/4)  
 
 Ez a fájl a WorkMan modul **helyi prompt váróterme (Prompt Cache)**. Ide kerülnek azok a magasabb szintű technikai specifikációk és fejlesztési promptok, amelyek a jelenlegi fázisban még nem végrehajthatóak, megakadályozva a kódoló Agentek túl korai implementációs kísérleteit.
 
