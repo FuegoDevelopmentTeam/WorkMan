@@ -1,10 +1,12 @@
 # MASTER_CONCEPT_WorkMan.md — WorkMan Technical Specification
 
-Version: 1.1.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció)  
+Version: 1.2.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció + DANA v1.36.0 Kulturális Mozgalom adopció: D097/D100/D104/D109 — §7)  
 Date: 2026-06-16  
 Status: RELEASED  
 
-> **DANA Platform-elv Adoptáció (v1.34.0):** **P52** (a `cash_advances`, előleg, kölcsön = **ledger-számlák** egy tier-dimenziós naplóban, nem külön rendszer; White/Grey/Black egy `ledger_tier` mező); **P53** (a Settlement Matrix [hourly/fixed/revenue-share/combined] a közös **elosztó-vízesés** primitíven, Money value object, determinisztikus kerekítés); **P60** (a szavatossági/Decay reputáció a **közös reputáció-gráfba** csatlakozik, nem külön); **P59** (a work-order→warranty→settlement folyamat a közös **saga** orchestrátoron); **P56/D095** (külső/privát projektek = meta-org-buborékon kívüli vagy scope-olt tételek); **P55** (a szavatossági idő valid-time). Cross-modul: a WorkMan kimenete DrBill-be (P44 esemény) és a DANA ledgerbe (D029) projektál.
+> **DANA Platform-elv Adoptáció (v1.34.0):** **P52** (a `cash_advances`, előleg, kölcsön = **ledger-számlák** egy tier-dimenziós naplóban, nem külön rendszer; White/Grey/Black egy `ledger_tier` mező); **P53** (a Settlement Matrix [hourly/fixed/revenue-share/combined] a közös **elosztó-vízesés** primitíven, Money value object, determinisztikus kerekítés); **P60** (a szavatossági/Decay reputáció a **közös reputáció-gráfba** csatlakozik, nem külön); **P56/D095** (külső/privát projektek = meta-org-buborékon kívüli vagy scope-olt tételek); **P55** (a szavatossági idő valid-time). Cross-modul: a WorkMan kimenete DrBill-be (P44 esemény) és a DANA ledgerbe (D029) projektál.
+> **Optimalizációs és Skálázási Paradigmaváltás (P63-P70):** **P66 (Durable Execution):** A szavatossági letét (Decay) és a work-order→warranty→settlement saga folyamatokat egy Durable Execution Motor (pl. Temporal.io) vezérli a törékeny status oszlopok és cron jobok helyett. **P64 (Event Sourcing):** A valós idejű fizetési kimutatások és előlegek eseménynaplókból épülnek fel.
+> **Senior Review II Adoptáció (DANA v1.35.0 — P71–P82, D096):** **P72/P78** (komplexitás-költségvetés): a P66 Temporal és a blanket Event Sourcing **alapból KIKAPCSOLT** — a warranty/settlement MVP-ben **sima Postgres status + scheduled job**; ES csak a pénzügyi posztolásnál; Temporal csak mért triggerre. **P74/P75** (FinTech-mag): a `cash_advances`, a settlement-tételek és a warranty-letét **nem** önálló érték-táblák, hanem a **kanonikus Számlatükörre + Party–Account magra** posztolnak a központi ledgeren (double-entry, P03) — egy dolgozó teljes nettó pozíciója (előleg − ledolgozott + letét) egyetlen egyenleg-lekérdezés. **P76** (suspense): a work-order→warranty→settlement saga lépései függő számlára posztolnak (a letét = explicit suspense-egyenleg). **P71** (Shapley): a revenue-share/projekt-elosztás a közös Shapley-elosztóra kerül (P53 waterfall fölött). **P81** (jurisdikció-pluggolható adó): a munkadíj/anyag bizonylat adó-kezelése a közös rule-packen át. **P80** (invariáns-guardrail): folytonos trial-balance a cash_advance ledgeren.
 Tech Stack: Next.js (Frontend), Supabase/PostgreSQL (Backend), Tailwind CSS (UI)
 
 ---
@@ -150,3 +152,16 @@ CREATE TABLE time_logs (
     status VARCHAR(20) DEFAULT 'pending_approval'
 );
 ```
+
+---
+
+## 7. DANA v1.36.0 Adopció — Koprodukció & Művészeti Projektek (Top-Down ▼, D097-D109)
+
+A WorkMan a „Kulturális Mozgalom" kör (DANA D097-D109) **művészeti-projekt** vonatkozásait adoptálja — a content-agnosztikus projekt/settlement-motor (§5) természetes gazdája.
+
+*   **D097 (CoChoreo Koprodukciós Royalty) — fő haszonélvező:** a `projects` (`project_type='artistic_show'`) + `settlement_rules` (revenue-share) a több tanár/koreográfus közös kűrjének elszámolója. A hozzájárulás-arány a **Shapley-alapú** elosztóra (P71) kerül a P53 waterfall fölött (a `revenue_share_percent` ad-hoc súlyok helyett); a több jogi láb közti zárás DrBill multilaterális nettinggel (P68).
+*   **D100 (Művészeti Kockázati Alap):** a `cash_advances` ledger adja a kísérleti show előlegét (kosztüm, próbaterem), amit a show bevétele „dolgoz le"; a keret-allokáció peer komparatív bírálattal (D076) dől el.
+*   **D104 (Tanári Rezidenciák):** a kereszt-entitás társtanítás mint projekt; a settlement a DrBill routing/klíring felé projektál.
+*   **D109 (Non-Harm):** a szavatossági/megbízhatósági reputáció (P60) a wellbeing-keretbe is becsatornázódik (biztonságos, fenntartható munkavégzés).
+
+> **Felszólítás (a User közvetíti):** a koprodukciós settlement Shapley-integrációja és a creative-fund előleg-logika a WorkMan Tech Lead hatásköre; a felosztás/klíring a DrBill-lel, a hozzájárulás-adat a KineLex/MeCat timeline-okkal egyeztetendő (`[CROSS-MODULE DELEGATION]`).
