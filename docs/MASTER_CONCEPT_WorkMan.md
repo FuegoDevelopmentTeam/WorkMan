@@ -1,6 +1,6 @@
 # MASTER_CONCEPT_WorkMan.md — WorkMan Technical Specification
 
-Version: 1.3.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció + DANA v1.36.0 Kulturális Mozgalom adopció: D097/D100/D104/D109 — §7 + DANA v1.37.0 Kooperatív Szakmai Ív adopció: D112/D118 — §8)  
+Version: 1.4.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció + DANA v1.36.0 Kulturális Mozgalom adopció: D097/D100/D104/D109 — §7 + DANA v1.37.0 Kooperatív Szakmai Ív adopció: D112/D118 — §8 + DANA v1.38.0 Szervezői Ökoszisztéma adopció: D123, D125 — §9)  
 Date: 2026-06-16  
 Status: RELEASED  
 
@@ -176,3 +176,14 @@ A WorkMan a kooperatív szakmai ív **valós idejű kereset-** és **projekt-els
 *   **D118 (Verseny- és Színpad-Ív):** a versenyző→koreográfus pálya show-/projekt-elszámolása a `projects` (`project_type='artistic_show'`) + Shapley-elosztó (P71) motoron; a Creative Fund (D100) előlege a `cash_advances`-ből, amit a show bevétele „dolgoz le".
 
 > **Felszólítás (a User közvetíti):** az earnings→owner's-lens feed és a show-settlement a WorkMan Tech Lead hatásköre; a felosztás/klíring a DrBill-lel egyeztetendő (`[CROSS-MODULE DELEGATION]`).
+
+---
+
+## 9. DANA v1.38.0 Adopció — Szervezői Ökoszisztéma & Anti-Monopol Kooperáció (Top-Down ▼, D123, D125)
+
+A WorkMan a szervezői ökoszisztéma és anti-monopol kooperáció kör WorkMan-vonatkozásait adoptálja (a staffing és a projekt-elszámolási motor gazdája).
+
+*   **D123 (Esemény-Erőforrás Likviditás & Fair-Access Marketplace):** a gondnokok, építők és lebonyolítók bevonása a belső marketplace-be a WorkMan D062 mechanizmusán keresztül (Work Order), biztosítva az események fizikai előkészítésének és üzemeltetésének fair staffing allokációját.
+*   **D125 (Szervezői Konzorcium & CoEvent-Royalty):** új `event_production` projekt típus támogatása a WorkMan `projects` táblában a közös rendezvények kezelésére, és a Shapley-alapú (P71) felosztás integrálása a WorkMan settlement mechanizmusába a szervezők közötti igazságos elszámolás érdekében.
+
+> **Felszólítás (a User közvetíti):** az `event_production` projekt típus és a Shapley-alapú elszámolás implementációja a WorkMan Tech Lead hatásköre; a kifizetési bizonylatok és a klíring a DrBill-lel egyeztetendő (`[CROSS-MODULE DELEGATION]`).
