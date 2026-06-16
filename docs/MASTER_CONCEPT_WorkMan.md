@@ -1,6 +1,6 @@
 # MASTER_CONCEPT_WorkMan.md — WorkMan Technical Specification
 
-Version: 1.2.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció + DANA v1.36.0 Kulturális Mozgalom adopció: D097/D100/D104/D109 — §7)  
+Version: 1.3.0 (Work-Order, Resource & Value-Flow Engine + DANA v1.34.0 platform-elv adoptáció + DANA v1.36.0 Kulturális Mozgalom adopció: D097/D100/D104/D109 — §7 + DANA v1.37.0 Kooperatív Szakmai Ív adopció: D112/D118 — §8)  
 Date: 2026-06-16  
 Status: RELEASED  
 
@@ -165,3 +165,14 @@ A WorkMan a „Kulturális Mozgalom" kör (DANA D097-D109) **művészeti-projekt
 *   **D109 (Non-Harm):** a szavatossági/megbízhatósági reputáció (P60) a wellbeing-keretbe is becsatornázódik (biztonságos, fenntartható munkavégzés).
 
 > **Felszólítás (a User közvetíti):** a koprodukciós settlement Shapley-integrációja és a creative-fund előleg-logika a WorkMan Tech Lead hatásköre; a felosztás/klíring a DrBill-lel, a hozzájárulás-adat a KineLex/MeCat timeline-okkal egyeztetendő (`[CROSS-MODULE DELEGATION]`).
+
+---
+
+## 8. DANA v1.37.0 Adopció — Hozzájárulói Tükör & Show-Settlement (Top-Down ▼, D110-D120)
+
+A WorkMan a kooperatív szakmai ív **valós idejű kereset-** és **projekt-elszámolási** vonatkozásait adoptálja.
+
+*   **D112 (Owner's Lens):** a Real-Time Earnings Feed (§3B) a forrása a BeatPass/Core személyes mini-P&L („owner's lens") widgetnek — a ledolgozott/várható kereset + a cash_advance pozíció (§3C) egyetlen nettó nézetben (P75 Party–Account). Ez a tulajdonosi szemlélet (D061) adat-oldali bemenete.
+*   **D118 (Verseny- és Színpad-Ív):** a versenyző→koreográfus pálya show-/projekt-elszámolása a `projects` (`project_type='artistic_show'`) + Shapley-elosztó (P71) motoron; a Creative Fund (D100) előlege a `cash_advances`-ből, amit a show bevétele „dolgoz le".
+
+> **Felszólítás (a User közvetíti):** az earnings→owner's-lens feed és a show-settlement a WorkMan Tech Lead hatásköre; a felosztás/klíring a DrBill-lel egyeztetendő (`[CROSS-MODULE DELEGATION]`).
